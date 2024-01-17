@@ -2,16 +2,12 @@
     <div class="about-container">
       <h1 class="about-title">About</h1>
       <p class="about-info">
-        <span class="info-label">Company:</span> Mantra Technologies
+        Mantra’s journey began with an aspiration to become a dynamic & viable product designer facilitating all businesses and people worldwide. Staying true to its word, Mantra reached astounding milestones that further would become inspirational legends to several of its successors that followed. While Mantra keeps evolving into this newer world of software & business horizons, we are always rooted in our key tenets to provide cost-effective & sustainable solutions to all our stakeholders
       </p>
-      <p class="about-info">
-        <span class="info-label">Address:</span>
-        I & II Floor, Vertex Corporate Building, opp. Lane to Hitex Arch, Jubilee Enclave, Madhapur, Hyderabad, Telangana 500081
-      </p>
+      
     </div>
-    <div> 
-      <button @click.prevent="gotohome">GoBacktoHome</button>
-      <button @click.prevent="direction">Direction</button>
+    <div class="button-container"> 
+      <button class="action-button" @click.prevent="gotohome">GoBacktoHome</button>
     </div>
   </template>
 <!-- //-------------------------------------------------------------------------------- -->
@@ -23,9 +19,7 @@ const gotohome=()=>{
 navigateTo('/')
 }
 
-const direction= ()=>{
-<one-direction />
-}
+
   
 </script>
 
@@ -57,6 +51,26 @@ const direction= ()=>{
     font-weight: bold;
     margin-right: 10px; /* Add space between label and text */
     color: #3498db; /* Set color for label */
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .action-button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
+  }
+  
+  .action-button:hover {
+    background-color: #007bb5;
   }
   </style>
   

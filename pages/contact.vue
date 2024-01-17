@@ -8,8 +8,19 @@
         <span class="info-label">Address:</span>
         I & II Floor, Vertex Corporate Building, opp. Lane to Hitex Arch, Jubilee Enclave, Madhapur, Hyderabad, Telangana 500081
       </p>
+      <div class="button-container"> 
+        
+        <button class="action-button" @click.prevent="direction">GetDirection</button>
+      </div>
     </div>
   </template>
+
+
+  <script setup>
+const direction= ()=>{
+  window.open('https://maps.app.goo.gl/29AWTaWkdKWYC5DW8', '_top');
+}
+</script>
   
   <style scoped>
   .about-container {
@@ -37,6 +48,26 @@
     font-weight: bold;
     margin-right: 10px; /* Add space between label and text */
     color: #3498db; /* Set color for label */
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .action-button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
+  }
+  
+  .action-button:hover {
+    background-color: #007bb5;
   }
   </style>
   
