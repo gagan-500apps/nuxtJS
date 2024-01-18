@@ -11,14 +11,23 @@
       <div class="button-container"> 
         
         <button class="action-button" @click.prevent="direction">GetDirection</button>
+        <!-- <button class="action-button" @click.prevent="layouts">layouts</button> -->
       </div>
     </div>
   </template>
 
 
   <script setup>
+// import { NuxtLayout } from '#build/components';
+
+  const flag=ref('false')
 const direction= ()=>{
   window.open('https://maps.app.goo.gl/29AWTaWkdKWYC5DW8', '_top');
+}
+
+const layouts=()=>{
+
+  console.log('lay');
 }
 </script>
   
