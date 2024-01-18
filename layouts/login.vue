@@ -1,13 +1,9 @@
-  <template>
+<template>
     <div>
       <header>
         <nav>
           <ul class="navbar">
-            <li><NuxtLink  to="/home">Home</NuxtLink></li>
-            <li><NuxtLink  to="/about">About</NuxtLink></li>
-            <li><NuxtLink  to="/contact">Contact</NuxtLink></li>  
-            <li><NuxtLink  to="/logout">Logout</NuxtLink></li>
-            <li><NuxtLink  to="/middleware">middleware</NuxtLink></li> 
+            <!-- <li><NuxtLink  to="/home">Home</NuxtLink></li> -->
           </ul>
         </nav>
       </header>

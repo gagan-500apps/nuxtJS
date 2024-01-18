@@ -1,15 +1,15 @@
 
-  <template>
-    <div class="index">
-      
-    </div>
+<template>
   <div>
-    <div class="search-container">
-      <form @submit.prevent="handleSubmit" class="search-form">
-        <input type="text" placeholder="Enter Employe name" v-model="Text" required class="search-input"/>
-        <button type="submit" class="search-button">Add</button>
+  
+      <form @submit.prevent="handleSubmit">
+        <h1>Login</h1>
+        <input type="text" placeholder="Enter your username" v-model="Text" required />
+        <input type="password" placeholder="Enter your password" v-model="Psw" required />
+        <button type="submit">LogIn</button><br>
+        <button type="submit">signup</button>
       </form>
-    </div>
+ 
   </div>
 </template>
 
@@ -19,55 +19,87 @@ import { ref } from 'vue';
 
 import ustore from '@/stores'
 
+definePageMeta({
+layout:"login"
+})
 const Text = ref('')
+const Psw=ref('')
 
 const handleSubmit = () => {
-  navigateTo(`/search/${Text.value}`)
-  console.log('Text.value',Text.value);
-  
+navigateTo(`/main/${Text.value}`)
 //   storeing the data in to the local store
-  ustore.name=Text.value
-  console.log('ustore.name',ustore.name);
+ustore.name=Text.value
+ustore.password=Psw.value
 };
-
 
 //to make mantra has a title name in titla bar
 useHead({
-  title: "Mantra",
-  // meta: [{name:"desc", content:"this is "}]
+title: "Mantra",
+// meta: [{name:"desc", content:"this is "}]
 })  
+
+
 </script>
 
+
 <style scoped>
-.search-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-}
 
-.search-form {
-  background-color: #cac6c6;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-}
+  /* Container styling */
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
 
-.search-input {
-  width: 85%;
-  padding: 20px;
-  margin-right: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
+  /* Form styling */
+  form {
+    background-color: #f4f4f4;
+    padding: 80px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 600px;
+    text-align: center;
+  }
 
-.search-button {
-  margin: 5%;
-  padding: 10px;
-  background-color: #3498db;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
+  /* Heading styling */
+  h1 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  /* Input styling */
+  input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+
+  /* Button styling */
+  button {
+    width: 100%;
+    padding: 15px;
+    background-color: #80c27a;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+  }
+
+  /* Add more space between buttons */
+  button + button {
+    margin-top: 15px;
+  }
+
+  /* Button hover effect */
+  button:hover {
+    background-color: #267bb8;
+  }
+
 </style>

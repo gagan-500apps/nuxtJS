@@ -1,9 +1,21 @@
 <template>
    <div>
+    <NuxtLayout name="navbar">
+      <NuxtPage />
+  </NuxtLayout>
      <h1 class="heading">{{ ustore.name }},</h1>
      <h1 class="sub-heading">Welcome to Mantra Technologies</h1>
    </div>
  </template>
+
+ <script setup>
+ import ustore from '@/stores'
+ import { ref } from 'vue';
+//  import {route } from 'vue-router'
+ const name = ref(ustore.name);
+
+ </script>
+ 
  
  <style scoped>
  .heading {
@@ -21,10 +33,4 @@
  }
  </style>
  
- <script setup>
- import ustore from '@/stores'
- import { ref } from 'vue';
- 
- const name = ref(ustore.name);
- </script>
  
