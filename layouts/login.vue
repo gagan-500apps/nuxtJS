@@ -3,7 +3,7 @@
       <header>
         <nav>
           <ul class="navbar">
-            <!-- <li><NuxtLink  to="/home">Home</NuxtLink></li> -->
+            <li><NuxtLink  to="/signup">SignUp</NuxtLink></li> 
           </ul>
         </nav>
       </header>

@@ -1,105 +1,52 @@
-
 <template>
   <div>
-  
-      <form @submit.prevent="handleSubmit">
-        <h1>Login</h1>
-        <input type="text" placeholder="Enter your username" v-model="Text" required />
-        <input type="password" placeholder="Enter your password" v-model="Psw" required />
-        <button type="submit">LogIn</button><br>
-        <button type="submit">signup</button>
-      </form>
- 
-  </div>
+    <header>
+      <nav>
+        <ul class="navbar">
+          <li><NuxtLink  to="/login">Login</NuxtLink></li> 
+          <li><NuxtLink  to="/signup">SignUp</NuxtLink></li> 
+        </ul>
+      </nav>
+    </header>
+
+    <slot />
+  </div> 
 </template>
 
 <script setup>
-
-import { ref } from 'vue';
-
-import ustore from '@/stores'
-
-definePageMeta({
-layout:"login"
-})
-const Text = ref('')
-const Psw=ref('')
-
-const handleSubmit = () => {
-navigateTo(`/main/${Text.value}`)
-//   storeing the data in to the local store
-ustore.name=Text.value
-ustore.password=Psw.value
-};
-
-//to make mantra has a title name in titla bar
-useHead({
-title: "Mantra",
-// meta: [{name:"desc", content:"this is "}]
-})  
-
-
 </script>
 
-
 <style scoped>
+/* Center the navbar items */
+.navbar {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px; /* Set a fixed height for the navbar */
+  background-color: #cac6c6; /* Set a background color for the navbar */
+}
 
-  /* Container styling */
-  div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
+/* Style for each list item in the navbar */
+.navbar li {
+  margin: 0 15px; /* Adjust the spacing between the list items */
+}
 
-  /* Form styling */
-  form {
-    background-color: #f4f4f4;
-    padding: 80px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    width: 600px;
-    text-align: center;
-  }
+/* Optional: Add some styling for the links */
+#home-link,
+#about-link {
+  text-decoration: none;
+  color: #030303; /* Set the text color */
+  padding: 8px 12px; /* Add some padding to the links */
+  border-radius: 4px; /* Add rounded corners */
+  font-weight: bold; /* Make the letters bold */
+}
 
-  /* Heading styling */
-  h1 {
-    color: #333;
-    font-size: 28px;
-    margin-bottom: 20px;
-  }
-
-  /* Input styling */
-  input {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-sizing: border-box;
-  }
-
-  /* Button styling */
-  button {
-    width: 100%;
-    padding: 15px;
-    background-color: #80c27a;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 20px;
-    transition: background-color 0.3s ease;
-  }
-
-  /* Add more space between buttons */
-  button + button {
-    margin-top: 15px;
-  }
-
-  /* Button hover effect */
-  button:hover {
-    background-color: #267bb8;
-  }
-
+#home-link:hover,
+#about-link:hover {
+  background-color: #007BFF; /* Change the background color on hover */
+  color: #fff; /* Change the text color on hover */
+}
 </style>

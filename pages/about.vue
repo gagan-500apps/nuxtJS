@@ -1,4 +1,7 @@
 <template>
+  <NuxtLayout name="defaultttt">
+    <NuxtPage />
+</NuxtLayout>
     <div class="about-container">
       <h1 class="about-title">About</h1>
       <p class="about-info">

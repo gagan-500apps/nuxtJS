@@ -1,4 +1,7 @@
 <template>
+    <NuxtLayout name="defaultttt">
+        <NuxtPage />
+    </NuxtLayout>
     <h1>home</h1>
 </template>
 

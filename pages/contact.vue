@@ -25,10 +25,9 @@ const direction= ()=>{
   window.open('https://maps.app.goo.gl/29AWTaWkdKWYC5DW8', '_top');
 }
 
-const layouts=()=>{
-
-  console.log('lay');
-}
+definePageMeta({
+  layout:'defaultttt'
+})
 </script>
   
   <style scoped>

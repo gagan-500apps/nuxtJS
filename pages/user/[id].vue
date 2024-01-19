@@ -1,6 +1,6 @@
 <template>
    <div>
-    <NuxtLayout name="navbar">
+    <NuxtLayout name="defaultttt">
       <NuxtPage />
   </NuxtLayout>
      <h1 class="heading">{{ ustore.name }},</h1>
@@ -13,6 +13,7 @@
  import { ref } from 'vue';
 //  import {route } from 'vue-router'
  const name = ref(ustore.name);
+ console.log(name);
 
  </script>
  

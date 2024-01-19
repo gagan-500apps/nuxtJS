@@ -8,6 +8,8 @@
             <li><NuxtLink  to="/contact">Contact</NuxtLink></li>  
             <li><NuxtLink  to="/logout">Logout</NuxtLink></li>
             <li><NuxtLink  to="/middleware">middleware</NuxtLink></li> 
+            <li><NuxtLink  to="/plugin">plugins</NuxtLink></li> 
+            
           </ul>
         </nav>
       </header>
