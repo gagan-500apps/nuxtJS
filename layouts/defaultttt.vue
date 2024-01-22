@@ -25,13 +25,14 @@
   /* Center the navbar items */
   .navbar {
     list-style: none;
-    padding: 0;
+    padding: 3%;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 50px; /* Set a fixed height for the navbar */
-    background-color: #cac6c6; /* Set a background color for the navbar */
+    background-color: #0c3478;; /* Set a background color for the navbar */
+    color: #ebe9e9;
   }
 
   /* Style for each list item in the navbar */
@@ -43,7 +44,7 @@
   #home-link,
   #about-link {
     text-decoration: none;
-    color: #030303; /* Set the text color */
+    color: #fffbfb; /* Set the text color */
     padding: 8px 12px; /* Add some padding to the links */
     border-radius: 4px; /* Add rounded corners */
     font-weight: bold; /* Make the letters bold */
