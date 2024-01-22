@@ -25,6 +25,7 @@
     <div class="login-container">
       <h1>Login</h1>
       <FormComponents :arrayData="arrayData" />
+      <!-- <button class="form_submit">Signup</button> -->
     </div>
   </template>
   
@@ -34,5 +35,19 @@
     text-align: center;
     font-size: 2rem;
 }
+.form_submit {
+    background-color: #fff; /* Button background color */
+    color: #3498db; /* Button text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 47%;
+  }
+
+  .form_submit:hover {
+    background-color: #2980b9; /* Button background color on hover */
+    color: #fff; /* Button text color on hover */
+  }
   </style>
   

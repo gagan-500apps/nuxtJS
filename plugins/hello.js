@@ -1,15 +1,12 @@
 export default defineNuxtPlugin((argu) => {
-    let evennum=[]
-    argu.even=(maxnum)=>{
-      evennum=[]
-      for (let i = 0; i <= maxnum; i++) 
+    
+    argu.otp=(length)=>{
+      let otpnum='';
+      for (let i = 0; i < length; i++) 
       {
-        if(i%2==0)
-        {
-          evennum.push(i)
-        }
+       otpnum += Math.floor(Math.random()*10).toString();
       }
-  return evennum
+  return otpnum
 }
   })
   
