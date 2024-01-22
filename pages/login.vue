@@ -1,36 +1,38 @@
-<script setup>
-import FormComponents from '~/components/FormComponents.vue';
+    <script setup>
+    import FormComponents from '~/components/FormComponents.vue';
 
-const arrayData = [
-    {
-        id: 1,
-        name: "email",
-        placeholder: "Enter email",
-        type: "text",
-        formName: "login",
-        text:"Enter Email"
-    },
-    {
-        id: 2,
-        name: "password",
-        placeholder: "Enter password",
-        type: "password",
-        formName: "login",
-        text:"Enter Password"   
-    },
-]
-</script>
+    const arrayData = [
+        {
+            id: 1,
+            name: "email",
+            placeholder: "Enter email",
+            type: "text",
+            formName: "login",
+            text:"Enter Email"
+        },
+        {
+            id: 2,
+            name: "password",
+            placeholder: "Enter password",
+            type: "password",
+            formName: "login",
+            text:"Enter Password"   
+        },
+    ]
+    </script>
 
 <template>
-    <div>
-        <h1 class="text-5xl"> Login </h1>
-        <FormComponents :arrayData="arrayData" />
+    <div class="login-container">
+      <h1>Login</h1>
+      <FormComponents :arrayData="arrayData" />
     </div>
-</template>
+  </template>
   
-<style scoped>
-h1{
-margin-top: 80px;
-margin-bottom: 20px;
+  <style scoped>
+.login-container > h1{
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 2rem;
 }
-</style>
+  </style>
+  

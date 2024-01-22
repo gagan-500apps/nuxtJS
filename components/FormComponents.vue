@@ -1,7 +1,7 @@
 <template>
-  <form @submit.prevent="handleFormSubmit" class="form_containe">
-    <div v-for="data in arrayData" :key="data.id" class="inputbox">
-      <span class="ml-4 text-sm">
+  <form @submit.prevent="handleFormSubmit" class="form_container">
+    <div v-for="data in arrayData" :key="data.id" class="input_box">
+      <span class="label_text">
         {{ data.text }}
       </span>
       <input
@@ -19,6 +19,7 @@
 <!-- -------------------------------------------------------------------------------------------------------------------------------- -->
 
 <script setup>
+
 import { defineProps, ref } from "vue";
 import { useRouter } from "vue-router";
 
@@ -73,7 +74,7 @@ const validateUser = () => {
   if (user) {
     console.log("user exist");
     // console.log('username',user.name);
-    navigateTo(`/user/${user.name}`)
+    navigateTo(`home`)
     // router.push("/home");
     alert("welcome to Mantra");
   } else {
@@ -84,47 +85,50 @@ const validateUser = () => {
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
 
-<style>
-.inputbox {
-  width: 300px;
-}
+<style scoped>
+  .form_container {
+    max-width: 300px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #3498db; /* Change the background color as needed */
+    color: #fff;
+    text-align: center;
+  }
 
-h1 {
-  text-align: center;
-  color: black;
-}
+  .input_box {
+    margin-bottom: 15px;
+  }
 
-.form_containe {
-  display: flex;
-  gap: 20px;
-  flex-direction: column;
-  height: 40rem;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  border: 1px solid teal;
-  width: 400px;
-  border-radius: 10px;
-}
+  .label_text {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
 
-.form_containe input {
-  font-size: large;
-  padding: 0.5rem 1rem;
-  outline: none;
-  border-radius: 10px;
-}
+  input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #fff; /* Border color */
+    border-radius: 4px;
+    background-color: #fff; /* Input field background color */
+    color: #333; /* Input field text color */
+  }
 
-.form_submit {
-  padding: 0.3rem 0.5rem;
-  outline: none;
-  width: 100px;
-  height: 40px;
-  border-radius: 10px;
-  /* background-color: grey; */
-  border: 1px solid teal;
-}
+  .form_submit {
+    background-color: #fff; /* Button background color */
+    color: #3498db; /* Button text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
 
-.form_submit:hover {
-  background-color: teal;
-}
+  .form_submit:hover {
+    background-color: #2980b9; /* Button background color on hover */
+    color: #fff; /* Button text color on hover */
+  }
 </style>
