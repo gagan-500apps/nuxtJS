@@ -6,9 +6,11 @@
             <li><NuxtLink  to="/home">Home</NuxtLink></li>
             <li><NuxtLink  to="/about">About</NuxtLink></li>
             <li><NuxtLink  to="/contact">Contact</NuxtLink></li>  
+            <li><NuxtLink  to="/middleware">Middleware</NuxtLink></li> 
+            <li><NuxtLink  to="/plugin">Plugins</NuxtLink></li> 
+            <li><NuxtLink  to="/regex">Regex</NuxtLink></li>
             <li><NuxtLink  to="/logout">Logout</NuxtLink></li>
-            <li><NuxtLink  to="/middleware">middleware</NuxtLink></li> 
-            <li><NuxtLink  to="/plugin">plugins</NuxtLink></li> 
+
             
           </ul>
         </nav>
@@ -31,7 +33,7 @@
     justify-content: center;
     align-items: center;
     height: 50px; /* Set a fixed height for the navbar */
-    background-color: #0c3478;; /* Set a background color for the navbar */
+    background-color: #0c3478; /* Set a background color for the navbar */
     color: #ebe9e9;
   }
 

@@ -45,9 +45,9 @@ arrayData.forEach((input) => {
 const submittedData = {};
 
 const handleFormSubmit = () => {
-  // if (arrayData[0].formName === "login") {
-  //   return validateUser();
-  // }
+  if (arrayData[0].formName === "login") {
+    return validateUser();
+  }
 
   for (const [key, value] of Object.entries(inputValues)) {
     submittedData[key] = value.value;
@@ -80,37 +80,37 @@ const handleFormSubmit = () => {
 };
 
 //---------------------------------------------------------------------------BRFORE REGEX WE USE TO VALIDATE MANUALLY-----------------------------------------------------
-// const validateUser = () => {
-//   let userData = JSON.parse(localStorage.getItem("signup")) || [];
-//   const email = inputValues["email"].value;
-//   const password = inputValues["password"].value;
-//   let user = null;
-//   userData.forEach((item) => {
-//     if (item.email === email && item.password === password) {
-//       user = item;
-//       return;
-//     }
-//   });
+const validateUser = () => {
+  let userData = JSON.parse(localStorage.getItem("signup")) || [];
+  const email = inputValues["email"].value;
+  const password = inputValues["password"].value;
+  let user = null;
+  userData.forEach((item) => {
+    if (item.email === email && item.password === password) {
+      user = item;
+      return;
+    }
+  });
 
-//   if (user) {
-//     console.log("user exist");
-//     // console.log('username',user.name);
-//     navigateTo(`home`)
-//     // router.push("/home");
-//     alert("welcome to Mantra");
-//   } else {
-//     alert("user doesnot exist, SignUp");
-//   }
-// };
+  if (user) {
+    console.log("user exist");
+    // console.log('username',user.name);
+    navigateTo(`home`)
+    // router.push("/home");
+    alert("welcome to Mantra");
+  } else {
+    alert("user doesnot exist, SignUp");
+  }
+};
 
 
 //-------------------------------------------------------------------REGEX FOR VALIDATEING FOR THE MAIL & PASSWORD-----------------------------------------------------
 const validateEmail = (email) => {
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailPattern = /^[a-zA-Z0-9._-]+@[a-z]+\.[a-z]{2,3}$/;
   return emailPattern.test(email);
 };
 const validatePassword = (password) => {
-  const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+  const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
   return passwordPattern.test(password);
 };
 

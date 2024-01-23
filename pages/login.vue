@@ -14,7 +14,6 @@ import FormComponents from '~/components/FormComponents.vue';
 import { useRouter } from 'vue-router';
 const router = useRouter();
 
-
 const arrayData = [
   { id: 1, name: "email", placeholder: "Enter your email", type: "text", formName: "login", text: "Enter your Email" },
   { id: 2, name: "password", placeholder: "Enter your password", type: "password", formName: "login", text: "Enter your Password" },
