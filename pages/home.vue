@@ -1,17 +1,16 @@
- <template>
-      <NuxtLayout name="defaultttt">
+<template>
+    <NuxtLayout name="defaultttt">
     <NuxtPage />
-</NuxtLayout>
-    <h1>HOME</h1>
-  </template>
+  </NuxtLayout>
+  <div>
+  home
+  </div>
+</template>
+
+<script setup>
 
 
- <script setup>
+</script>
 
-  </script>
+<style></style>
 
- 
-  <style scoped>
-
-  </style>
-   

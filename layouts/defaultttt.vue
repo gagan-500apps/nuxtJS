@@ -8,10 +8,8 @@
             <li><NuxtLink  to="/contact">Contact</NuxtLink></li>  
             <li><NuxtLink  to="/middleware">Middleware</NuxtLink></li> 
             <li><NuxtLink  to="/plugin">Plugins</NuxtLink></li> 
-            <li><NuxtLink  to="/regex">Regex</NuxtLink></li>
+            <li><NuxtLink  to="/prototype">Prototype</NuxtLink></li>
             <li><NuxtLink  to="/logout">Logout</NuxtLink></li>
-
-            
           </ul>
         </nav>
       </header>
@@ -19,9 +17,9 @@
     </div> 
   </template>
 
-  <script setup>
 
-  </script>
+  <script setup>  </script>
+
 
   <style scoped>
   /* Center the navbar items */

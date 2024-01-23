@@ -3,6 +3,7 @@
 </template>
 
 <script setup>
+console.log("kdjh");    
 definePageMeta({
     middleware: "aut1"
 })

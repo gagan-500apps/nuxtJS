@@ -53,7 +53,7 @@ const handleFormSubmit = () => {
     submittedData[key] = value.value;
   }
 
-  // Validate email and password using REGEX
+  // ---------------------------------------------Validate email and password using REGEX
   if (!validateEmail(submittedData.email)) {
     alert("Invalid email format");
     return;
@@ -66,7 +66,7 @@ const handleFormSubmit = () => {
 
 
   // console.log(submittedData)
-  // Save submitted data to Local Storage
+  //------------------------------------------------------------------- Save submitted data to Local Storage
   let localData = JSON.parse(localStorage.getItem(arrayData[0].formName));
   if (!localData) {
     localData = [];
