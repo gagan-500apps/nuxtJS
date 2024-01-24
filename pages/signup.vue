@@ -36,9 +36,7 @@ function goToLogin(){
 
 .login-link:hover {
   background-color: #15ce34;
-  /* Button background color on hover */
   color: #fff;
-  /* Button text color on hover */
 }
 
 p {

@@ -2,12 +2,12 @@
     <NuxtLayout name="defaultttt">
     <NuxtPage />
   </NuxtLayout>
-    <div id="app">
-      <VehicleComponent :make="vehicle.make" :model="vehicle.model" />
-      <CarComponent :make="car.make" :model="car.model" :doors="car.doors" />
-      <MotorcycleComponent :make="motorcycle.make" :model="motorcycle.model" :wheels="motorcycle.wheels" />
+    <div>
+      <VehicleComponent :Comp="vehicle.Company" :mod="vehicle.model" />
+      <CarComponent :Company="car.Company" :model="car.model" :doors="car.doors" />
+      <MotorcycleComponent :Company="motorcycle.Company" :model="motorcycle.model" :wheels="motorcycle.wheels" />
     </div>
-  </template>
+  </template>   
   
   <script setup>
   import { ref, toRefs } from 'vue';
@@ -16,19 +16,19 @@
   import MotorcycleComponent from '~/components/MotorcycleComponent.vue';
   
   class Vehicle {
-    constructor(make, model) {
-      this.make = make;
+    constructor(Company, model) {
+      this.Company = Company;
       this.model = model;
     }
   
     displayInfo() {
-      return `${this.make} ${this.model}`;
+      return `${this.Company} ${this.model}`;
     }
   }
   
   class Car extends Vehicle {
-    constructor(make, model, doors) {
-      super(make, model);
+    constructor(Company, model, doors) {
+      super(Company, model);
       this.doors = doors;
     }
   
@@ -39,8 +39,8 @@
   }
   
   class Motorcycle extends Vehicle {
-    constructor(make, model, wheels) {
-      super(make, model);
+    constructor(Company, model, wheels) {
+      super(Company, model);
       this.wheels = wheels;
     }
   

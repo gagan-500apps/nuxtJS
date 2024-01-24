@@ -32,7 +32,7 @@ function goToSignup() {
   font-size: 2rem;
 }
 
-.form_submit {
+/* .form_submit {
   background-color: #fff;
   color: #3498db;
   padding: 10px 20px;
@@ -40,12 +40,12 @@ function goToSignup() {
   border-radius: 4px;
   cursor: pointer;
   margin-left: 47%;
-}
+} */
 
-.form_submit,
+
 .signup-link:hover {
   background-color: #15ce34;
-  color: #fff;
+  color: #e4e0e0;
 }
 
 p {

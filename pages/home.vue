@@ -1,16 +1,12 @@
 <template>
-    <NuxtLayout name="defaultttt">
+<NuxtLayout name="defaultttt">
     <NuxtPage />
   </NuxtLayout>
-  <div>
-  home
-  </div>
+  <h1>Home</h1>
 </template>
 
 <script setup>
 
-
 </script>
 
 <style></style>
-
