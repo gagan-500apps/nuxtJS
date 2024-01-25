@@ -1,4 +1,4 @@
-<template>
+ <template>
 <NuxtLayout name="defaultttt">
     <NuxtPage />
   </NuxtLayout>
@@ -9,4 +9,5 @@
 
 </script>
 
-<style></style>
+<style></style> 
+

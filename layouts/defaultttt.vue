@@ -9,6 +9,7 @@
             <li><NuxtLink  to="/middleware">Middleware</NuxtLink></li> 
             <li><NuxtLink  to="/plugin">Plugins</NuxtLink></li> 
             <li><NuxtLink  to="/prototype">Prototype</NuxtLink></li>
+            <li><NuxtLink  to="/api">Api</NuxtLink></li>
             <li><NuxtLink  to="/logout">Logout</NuxtLink></li>
           </ul>
         </nav>
