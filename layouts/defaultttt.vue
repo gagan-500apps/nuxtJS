@@ -11,6 +11,8 @@
             <li><NuxtLink  to="/prototype">Prototype</NuxtLink></li>
             <li><NuxtLink  to="/api">Api</NuxtLink></li>
             <li><NuxtLink  to="/logout">Logout</NuxtLink></li>
+            <li><NuxtLink  to="/memoryManagement">MemoryManagement</NuxtLink></li>
+          
           </ul>
         </nav>
       </header>

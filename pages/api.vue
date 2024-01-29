@@ -4,7 +4,8 @@
     <NuxtPage />
   </NuxtLayout>
 
-
+  <div :class="{ 'dark-mode': isDarkMode }">
+  <p>Toggle Dark Mode: <input type="checkbox" v-model="isDarkMode"></p>
 
     <div class="parent">
         <h1 class="title">News Author Page</h1>
@@ -12,56 +13,97 @@
         <div id="author-container">
 
             
-            <div class="author-card" v-for="(author, index ) in authorDataArr" :key="index">
+            <div class="author-card" v-for="(user, index ) in authorDataArr" :key="index">
                 
-                <h2 class="author-name">{{ author.author }}</h2>
-                <img class="author-img" :src="`${author.image}`" alt="${author} avatar">
-                <div class="purple-divider"></div>
-                <p class="bio">{{ author.bio.length > 50 ? `${author.bio.slice(0, 50)}...` : author.bio }}</p>
+                <h2 class="author-name">{{ user.author }}</h2>
+                <img class="author-img" :src="`${user.image}`" alt="${author} avatar">
+                               
+                <p class="bio">{{ user.bio.length > 50 ? `${user.bio.slice(0, 50)}...` : user.bio }}</p>
                 <!-- <p class="author-bio">{{author.bio}}</p>  -->
-                <a class="author-link" href="`${url}`" target="_blank">{{author.author}}author page</a>
+
+                <a class="author-link" :href="`${user.url}`" target="_blank">{{user.author}} author page</a>
             </div>
             
         </div>
         <main>
-            <button class="btn" @click="handleLoadMore" v-if="authorDataArr.length >= endingIndex">Load More Authors</button>
-            <button class="btn" @click="handleLoadMore" disabled v-else>No More Authors</button>
+          <div v-if="authorDataArrLength  >= endingIndex">
+            <button class="btn" @click="handleLoadMore" >next8</button>
+            <button class="btn" @click="handleLoadless">prev8</button>
+          </div>
+          <div v-else>
+            <button class="btn">next8</button>
+            <button class="btn" @click="handleLoadless">prev8</button>
+          </div>
         </main>
     </div>
+  </div>
 </template>
 
 
 <script setup>
 const authorContainer = ref([]);
 const loadMoreBtnDisabled = ref(false);
+const isDarkMode = ref(false);
 
-let startingIndex = ref(0)
+let startingIndex = ref(0) 
 let endingIndex = ref(8)
 let allAuthorDataArr = ref([])
 let authorDataArr = ref([]);
+let authorDataArrLength =ref(8)
 
-fetch('https://cdn.freecodecamp.org/curriculum/news-author-page/authors.json')
-    .then((res) => res.json())
-    .then((data) => {//assigning the data to authorDataArr
-        console.log('data', data);
-        allAuthorDataArr.value = data;
-        displayAuthors();   //you can extract a portion of the authors with the startingIndex and endingIndex variables by useing slice method
-    })
-    .catch((err) => {
-        console.error(`There was an error: ${err}`);
-    });
+// fetch('https://cdn.freecodecamp.org/curriculum/news-author-page/authors.json')
+//     .then((res) => res.json())
+//     .then((data) => {//assigning the data to authorDataArr
+//         console.log('data', data);
+//         allAuthorDataArr.value = data;
+//         consolnext8
+onMounted(async ()=>{
+  try{
+    const res=await fetch('https://cdn.freecodecamp.org/curriculum/news-author-page/authors.json');
+    const data=await res.json();
+    allAuthorDataArr.value = data;
+        displayAuthors(); 
+  } catch (err) {
+    console.error(`There was an error: ${err}`);
+  }
+})
 
 const displayAuthors = () => {
+    console.log("DA startingIndex: ", startingIndex.value)
+    console.log("DA endingIndex: ", endingIndex.value)
     authorDataArr.value = [...authorDataArr.value, ...allAuthorDataArr.value.slice(startingIndex.value, endingIndex.value)]
-    console.log("authorDataArr.value.length: ", authorDataArr.value.length)
-    // console.log(authorDataArr.value)
+ console.log('authorDataArr.value',authorDataArr.value.length);
 }
 
 const handleLoadMore = () => {
     startingIndex.value += 8;
     endingIndex.value += 8;
+    authorDataArr.value =[]    
     displayAuthors()
-    console.log("endingIndex: ", endingIndex.value)
+      
+    authorDataArrLength.value += authorDataArr.value.length
+    // console.log('authorDataArrLength',authorDataArrLength.value);
+    // console.log("startingIndex: ", startingIndex.value)
+    // console.log("endingIndex: ", endingIndex.value)
+    // console.log('------------------------------');
+}
+const handleLoadless=()=>{
+  startingIndex.value -= 8;
+    endingIndex.value -= 8;
+    authorDataArr.value =[]    
+    displayAuthors()
+
+      if(authorDataArrLength.value===endingIndex.value){
+    authorDataArrLength.value -= authorDataArr.value.length
+    // console.log('authorDataArrLength',authorDataArrLength.value);
+    // console.log("startingIndex: ", startingIndex.value)
+    // console.log("endingIndex: ", endingIndex.value)
+    // console.log('------------------------------');
+  }
+  else{
+authorDataArrLength.value===endingIndex.value;
+  }
+
 }
 </script>
 
@@ -144,4 +186,10 @@ const handleLoadMore = () => {
   border: none;
   border-radius: 5px;
 }
+
+.dark-mode {
+    height: 100vh;
+    background-color: #333;
+    color: #fff;
+  }
 </style>

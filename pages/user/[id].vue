@@ -19,6 +19,9 @@
  
  
  <style scoped>
+ *{
+  height: 100vh;
+ }
  .heading {
    color:#3bd142 ;
    font-family: 'Arial', sans-serif;
