@@ -11,12 +11,12 @@
 
 
 <script setup>
-const { otp } = useNuxtApp() //here we are calling the hello.js otp method
+const { otp } = useNuxtApp() //here we are calling the otp.js otp method
 const otpNumber = ref('')
 const flag = ref(false)
 
 const getotp = () => {
-  otpNumber.value = otp(4) //here we are calling the hello.js otp method
+  otpNumber.value = otp(4) //here we are calling the otp.js otp method
   flag.value = 'true'
 }
 </script>

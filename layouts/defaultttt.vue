@@ -3,16 +3,17 @@
       <header>
         <nav>
           <ul class="navbar">
-            <li><NuxtLink  to="/home">Home</NuxtLink></li>
-            <li><NuxtLink  to="/about">About</NuxtLink></li>
-            <li><NuxtLink  to="/contact">Contact</NuxtLink></li>  
+            <li><NuxtLink  to="/home">Home</NuxtLink></li> 
             <li><NuxtLink  to="/middleware">Middleware</NuxtLink></li> 
             <li><NuxtLink  to="/plugin">Plugins</NuxtLink></li> 
             <li><NuxtLink  to="/prototype">Prototype</NuxtLink></li>
             <li><NuxtLink  to="/api">Api</NuxtLink></li>
-            <li><NuxtLink  to="/logout">Logout</NuxtLink></li>
             <li><NuxtLink  to="/memoryManagement">MemoryManagement</NuxtLink></li>
-          
+            <li><NuxtLink  to="/oop">OOP's</NuxtLink></li>
+            <li><NuxtLink  to="/about">About</NuxtLink></li>
+            <li><NuxtLink  to="/contact">Contact</NuxtLink></li> 
+            <li><NuxtLink  to="/logout">Logout</NuxtLink></li>
+
           </ul>
         </nav>
       </header>
@@ -40,7 +41,7 @@
 
   /* Style for each list item in the navbar */
   .navbar li {
-    margin: 0 15px; /* Adjust the spacing between the list items */
+    margin: 0 25px; /* Adjust the spacing between the list items */
   }
 
   /* Optional: Add some styling for the links */

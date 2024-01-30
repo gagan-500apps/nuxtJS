@@ -1,52 +1,44 @@
 <template>
-  <div>
-    <header>
-      <nav>
-        <ul class="navbar">
-          <li><NuxtLink  to="/login">Login</NuxtLink></li> 
-          <li><NuxtLink  to="/signup">SignUp</NuxtLink></li> 
-        </ul>
+  <div class="bg-gradient-to-r from-blue-800 to-blue-500 h-screen text-white">
+    <header class="py-4">
+      <nav class="container mx-auto flex items-center justify-between">
+        <h1 class="text-2xl font-bold">MANTRA TECHNOLOGIES</h1>
       </nav>
     </header>
 
-    <slot />
-  </div> 
+    <main class="container mx-auto flex flex-col items-center justify-center h-full">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-semibold mb-4">Welcome to MANTRA</h2>
+        <p class="text-lg">Explore our services and join us today!</p>
+      </div>
+
+      <div class="flex space-x-4">
+        <div>
+          <NuxtLink class="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition block">Login</NuxtLink>
+        </div>
+        <div>
+          <NuxtLink class="bg-green-500 text-white px-6 py-3 rounded-md hover:bg-green-600 transition block">Sign Up</NuxtLink>
+        </div>
+      </div>
+
+      <div class="mt-16">
+        <p class="text-sm">Need help? <NuxtLink to="/contact" class="text-yellow-300">Contact us</NuxtLink></p>
+      </div>
+    </main>
+  </div>
 </template>
 
 <script setup>
 </script>
 
 <style scoped>
-/* Center the navbar items */
-.navbar {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px; /* Set a fixed height for the navbar */
-  background-color: #cac6c6; /* Set a background color for the navbar */
+/* Gradient background */
+.bg-gradient-to-r {
+  background: linear-gradient(to right, #3182CE, #2C5282);
 }
 
-/* Style for each list item in the navbar */
-.navbar li {
-  margin: 0 15px; /* Adjust the spacing between the list items */
-}
-
-/* Optional: Add some styling for the links */
-#home-link,
-#about-link {
-  text-decoration: none;
-  color: #030303; /* Set the text color */
-  padding: 8px 12px; /* Add some padding to the links */
-  border-radius: 4px; /* Add rounded corners */
-  font-weight: bold; /* Make the letters bold */
-}
-
-#home-link:hover,
-#about-link:hover {
-  background-color: #007BFF; /* Change the background color on hover */
-  color: #fff; /* Change the text color on hover */
+/* Hover effect on links */
+a:hover {
+  text-decoration: underline;
 }
 </style>
