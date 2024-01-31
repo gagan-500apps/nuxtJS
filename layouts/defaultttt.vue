@@ -12,6 +12,8 @@
             <li><NuxtLink  to="/oop">OOP's</NuxtLink></li>
             <li><NuxtLink  to="/about">About</NuxtLink></li>
             <li><NuxtLink  to="/contact">Contact</NuxtLink></li> 
+            <li><NuxtLink  to="/sorting">Sort</NuxtLink></li> 
+            <li><NuxtLink  to="/quiz">TakeTest</NuxtLink></li> 
             <li><NuxtLink  to="/logout">Logout</NuxtLink></li>
 
           </ul>
