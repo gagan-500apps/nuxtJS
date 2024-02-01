@@ -56,9 +56,15 @@ let authorDataArrLength =ref(8)
 //     .then((data) => {//assigning the data to authorDataArr
 //         console.log('data', data);
 //         allAuthorDataArr.value = data;
-//         consolnext8
+//         displayAuthors();   //you can extract a portion of the authors with the startingIndex and endingIndex variables by useing slice method
+//     })
+//     .catch((err) => {
+//         console.error(`There was an error: ${err}`);
+//        });
+
 onMounted(async ()=>{
   try{
+    //await is used to hold that line, until the data is fetched from the api
     const res=await fetch('https://cdn.freecodecamp.org/curriculum/news-author-page/authors.json');
     const data=await res.json();
     allAuthorDataArr.value = data;
@@ -69,10 +75,10 @@ onMounted(async ()=>{
 })
 
 const displayAuthors = () => {
-    console.log("DA startingIndex: ", startingIndex.value)
-    console.log("DA endingIndex: ", endingIndex.value)
+    // console.log("DA startingIndex: ", startingIndex.value)
+    // console.log("DA endingIndex: ", endingIndex.value)
     authorDataArr.value = [...authorDataArr.value, ...allAuthorDataArr.value.slice(startingIndex.value, endingIndex.value)]
- console.log('authorDataArr.value',authorDataArr.value.length);
+ console.log('authorDataArr.value',authorDataArr.value);
 }
 
 const handleLoadMore = () => {

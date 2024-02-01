@@ -1,98 +1,120 @@
 <template>
-<div class="body">
-    <div class="app">
-        <h1>Simple quiz</h1>
-        <div class="quiz">
-            <div id="questions">{{showQuestion}}</div>
-            <div id="answer-button">
-                <!-- <button v-for="(answer, index) in currentQuestion.answers" :key="index" class="btn">
-            {{ answer.text }}
-          </button> -->
-                <button class="btn">op1</button>
-                <button class="btn">op2</button>
-                <!-- <button class="btn">op3</button>
-                <button class="btn">op4</button> -->
+    <div class="body">
+        <div class="app">
+            <h1>Simple quiz</h1>
+            <div class="quiz">
+                <div id="questions">{{ showQuestion }}</div>
+
+                <div id="answer-buttons">
+                    <button
+                     @click="checkAnswer(answer)" 
+                     v-for="(answer, index) in answersarray" :key="index"
+                      class="btn">
+                        {{ answer.text }}
+                    </button>
+                </div>
+
+
+                <button id="next-btn" @click="takeQuestion">next</button>
             </div>
-            <button id="next-btn">next</button>
         </div>
     </div>
-</div>   
 </template>
 
 <script setup>
-const questions=[
+const questions = [
     {
-        question: "your age",
-        answers:[
-            {text:"21", correct: false},
-            {text:"22", correct: true},
+        question: "what is your age",
+        answers: [
+            { text: "21", correct: false },
+            { text: "22", correct: true },
+            { text: "23", correct: false },
         ]
     },
     {
         question: "your name",
-        answers:[
-            {text:"man", correct: false},
-            {text:"mantra", correct: true},
+        answers: [
+            { text: "man", correct: false },
+            { text: "mantra", correct: true },
         ]
     }
 ];
 
-const currentQuestionIndex=0
-const showQuestion=ref()
-let score=0;
-
-// const currentQuestion=ref()
-
-const takeQuestion=()=>{
-     let currentQuestion=questions[currentQuestionIndex]
-     console.log('currentQuestion',currentQuestion);
-    let questionNo=currentQuestionIndex+1;
-    showQuestion.value=questionNo+"."+currentQuestion.question
-    console.log(showQuestion.value);
-
-    currentQuestion.answers.forEach(ans=>{
-        const option=ans.text
-        console.log('option',option);
-    })
-
+const checkAnswer = (answer) => {
+    if(answer.correct){
+        score=score+1;
+    }
 }
+
+
+
+
+let currentQuestionIndex = 0
+const showQuestion = ref()
+let score = 0;
+const answersarray = ref([])
+
+
+const takeQuestion = () => {
+
+    if(questions.length===currentQuestionIndex)
+    {   showscore();
+        alert('all questions are done')
+    }
+    
+    let currentQuestion = questions[currentQuestionIndex]
+    console.log('currentQuestion',currentQuestionIndex);
+    let questionNo = currentQuestionIndex + 1;
+    showQuestion.value = questionNo + "." + currentQuestion.question
+
+    // currentQuestion.answers.forEach(ans=>{
+    //     const option=ans.text
+    //     console.log('option',option);
+    // })
+
+    answersarray.value = currentQuestion.answers
+    currentQuestionIndex += 1;
+}
+
+
 takeQuestion();
 </script>
 
 <style>
-
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: 'poppins', sans-serif;
     box-sizing: border-box;
 }
 
-body{
+/* body{
      background: #001e4d;
-}
-.app{
-background: #fff;
-width: 90%;
-max-width: 600px;
-margin: 100px auto 0;
-border-radius: 10px;
-padding: 30px;
+} */
+.app {
+    background: #fff;
+    width: 90%;
+    max-width: 600px;
+    margin: 100px auto 0;
+    border-radius: 10px;
+    padding: 30px;
 }
 
-.app h1{
+.app h1 {
     font-size: 25px;
     color: #001e4d;
     font-weight: 600;
     border-bottom: 1px solid #333;
     padding-bottom: 30px;
 }
-.quiz{
+
+.quiz {
     padding: 20px 0;
     color: #001e4d;
     font-weight: 600;
 }
-.btn{
+
+.btn {
     background: #fff;
     color: #222;
     font-weight: 500;
@@ -105,12 +127,13 @@ padding: 30px;
     cursor: pointer;
     transition: all 0.3s;
 }
-.btn:hover{
+
+.btn:hover {
     background: #222;
     color: #fff;
 }
 
-#next-btn{
+#next-btn {
     background: #001e4d;
     color: #fff;
     font-weight: 500;
@@ -121,5 +144,10 @@ padding: 30px;
     border-radius: 4px;
     cursor: pointer;
     display: block;
+}
+
+.selected-answer {
+  background-color: green;
+  color: white;
 }
 </style>
