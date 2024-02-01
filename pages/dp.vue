@@ -21,7 +21,7 @@
   
   
 
-
+<!-- 
 
  <template>
     <div>
@@ -64,4 +64,4 @@
     numberOfWays.value = ways[target];
   };
   </script>
-   
+    -->
