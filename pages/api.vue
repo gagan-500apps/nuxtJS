@@ -5,9 +5,9 @@
   </NuxtLayout> -->
 
   <div :class="{ 'dark-mode': isDarkMode }">
-  <p>Toggle Dark Mode: <input type="checkbox" v-model="isDarkMode"></p>
+    <input type="text" v-model="searchText" placeholder="Search by author name">
 
-  <input type="text" v-model="searchQuery" @input="filteredAuthors" @keyup.enter="filteredAuthors" placeholder="Search author">
+  <p>Toggle Dark Mode: <input type="checkbox" v-model="isDarkMode"></p>
 
     <div class="parent">
         <h1 class="title">News Author Page</h1>
@@ -73,12 +73,18 @@ onMounted(async ()=>{
   }
 })
 
+const searchText = ref('');
 const displayAuthors = () => {
-    // console.log("DA startingIndex: ", startingIndex.value)
-    // console.log("DA endingIndex: ", endingIndex.value)
-    authorDataArr.value = [...authorDataArr.value, ...allAuthorDataArr.value.slice(startingIndex.value, endingIndex.value)]
- console.log('authorDataArr.value',authorDataArr.value);
-}
+    const filteredAuthors = allAuthorDataArr.value.filter(user =>
+        user.author.toLowerCase().includes(searchText.value.toLowerCase())
+    );
+    authorDataArr.value = [...filteredAuthors.slice(startingIndex.value, endingIndex.value)];
+    console.log('authorDataArr.value', authorDataArr.value);
+};
+
+watchEffect(() => {
+    displayAuthors();
+});
 
 const handleLoadMore = () => {
     startingIndex.value += 8;

@@ -26,7 +26,7 @@ definePageMeta({
 
   const flag=ref('false')
 const direction= ()=>{
-  window.open('https://maps.app.goo.gl/29AWTaWkdKWYC5DW8', '_top');
+  window.open('https://maps.app.goo.gl/29AWTaWkdKWYC5DW8', '_blank');
 }
 
 </script>

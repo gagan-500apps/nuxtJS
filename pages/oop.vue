@@ -70,6 +70,13 @@
     }
   
     decrement(amt) {
+    let a  = this.balanes.value-amt
+      console.log('this.balanes.value',a);
+      if(a<0)
+      {
+        alert('insuffient balance')
+        return;
+      }
       this.balanes.value -= amt;
     }
   }

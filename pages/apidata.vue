@@ -29,6 +29,8 @@
     
     
     <script setup>
+import { ref, onMounted, watchEffect } from 'vue';
+
     const authorContainer = ref([]);
     const loadMoreBtnDisabled = ref(false);
     const isDarkMode = ref(false);
@@ -51,14 +53,17 @@
     })
 
     const searchText = ref('');
-    
-    const displayAuthors = () => {
-    //     authorDataArr.value = [...authorDataArr.value, ...allAuthorDataArr.value.slice(startingIndex.value, endingIndex.value)]
-    //  console.log('authorDataArr.value',authorDataArr.value);
-    const filteredAuthors = allAuthorDataArr.value.filter(user => user.author.toLowerCase().includes(searchText.value.toLowerCase()));
+const displayAuthors = () => {
+    const filteredAuthors = allAuthorDataArr.value.filter(user =>
+        user.author.toLowerCase().includes(searchText.value.toLowerCase())
+    );
     authorDataArr.value = [...filteredAuthors.slice(startingIndex.value, endingIndex.value)];
     console.log('authorDataArr.value', authorDataArr.value);
-    }
+};
+
+watchEffect(() => {
+    displayAuthors();
+});
     
     const handleLoadMore = () => {
         startingIndex.value += 8;

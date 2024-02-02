@@ -23,7 +23,7 @@
 const flag = ref(null)
 //-------------------------Middleware------------------- 
 const gotohome = () => {
-  navigateTo('/')
+  navigateTo('/home')
 }
 </script>
 
