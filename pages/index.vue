@@ -24,7 +24,7 @@
       </div>
 
       <div class="mt-16">
-        <p class="text-sm">Need help? <NuxtLink to="/contact" class="text-yellow-300">Contact us</NuxtLink></p>
+        <p class="text-sm">Need help? <NuxtLink to="/login" class="text-yellow-300">Contact us</NuxtLink></p>
       </div>
     </main>
   </div>

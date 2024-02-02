@@ -85,6 +85,7 @@ const validateUser = () => {
   const email = inputValues["email"].value;
   const password = inputValues["password"].value;
   let user = null;
+  
   userData.forEach((item) => {
     if (item.email === email && item.password === password) {
       user = item;
@@ -95,11 +96,11 @@ const validateUser = () => {
   if (user) {
     console.log("user exist");
     // console.log('username',user.name);
-    navigateTo(`home`)
-    // router.push("/home");
+    // navigateTo(`home`)
+    router.push("/home");
     alert("welcome to Mantra");
   } else {
-    alert("user doesnot exist, SignUp");
+    alert("user doesnot exist");
   }
 };
 

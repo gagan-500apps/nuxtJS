@@ -20,14 +20,15 @@
   <script setup>
 // import { NuxtLayout } from '#build/components';
 
+definePageMeta({
+  middleware : ['login']
+})
+
   const flag=ref('false')
 const direction= ()=>{
   window.open('https://maps.app.goo.gl/29AWTaWkdKWYC5DW8', '_top');
 }
 
-definePageMeta({
-  layout:'defaultttt'
-})
 </script>
   
   <style scoped>

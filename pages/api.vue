@@ -1,20 +1,19 @@
 <template>
 
-<NuxtLayout name="defaultttt">
+<!-- <NuxtLayout name="defaultttt">
     <NuxtPage />
-  </NuxtLayout>
+  </NuxtLayout> -->
 
   <div :class="{ 'dark-mode': isDarkMode }">
   <p>Toggle Dark Mode: <input type="checkbox" v-model="isDarkMode"></p>
 
+  <input type="text" v-model="searchQuery" @input="filteredAuthors" @keyup.enter="filteredAuthors" placeholder="Search author">
+
     <div class="parent">
         <h1 class="title">News Author Page</h1>
 
-        <div id="author-container">
-
-            
+        <div id="author-container">  
             <div class="author-card" v-for="(user, index ) in authorDataArr" :key="index">
-                
                 <h2 class="author-name">{{ user.author }}</h2>
                 <img class="author-img" :src="`${user.image}`" alt="${author} avatar">
                                
@@ -111,6 +110,14 @@ authorDataArrLength.value===endingIndex.value;
   }
 
 }
+
+
+const searchQuery = ref('');
+
+const filteredAuthors = computed(() => {
+  return authorDataArr.value.filter(user => user.author.toLowerCase().includes(searchQuery.value.toLowerCase()));
+});
+console.log('filteredAuthors',filteredAuthors);
 </script>
 
 <style scoped>

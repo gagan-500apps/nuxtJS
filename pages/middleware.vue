@@ -4,7 +4,7 @@
 </template>
 
 <script setup>
-console.log("kdjh");    
+// console.log("kdjh");    
 definePageMeta({
     middleware: "aut1"
 })
