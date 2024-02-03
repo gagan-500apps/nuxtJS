@@ -1,4 +1,5 @@
 <template>
+    
     <div class="body">
         <div class="app">
             <h1>Simple quiz</h1>

@@ -1,21 +1,22 @@
-  <template>
+<template>
     <div>
       <header>
         <nav>
           <ul class="navbar">
-            <!-- <li><NuxtLink  to="/home">Home</NuxtLink></li>  -->
-            <!-- <li><NuxtLink  to="/middleware">Middleware</NuxtLink></li> 
+            <li><NuxtLink  to="/home">Home</NuxtLink></li> 
+            <li><NuxtLink  to="/middleware">Middleware</NuxtLink></li> 
             <li><NuxtLink  to="/plugin">Plugins</NuxtLink></li> 
             <li><NuxtLink  to="/prototype">Prototype</NuxtLink></li>
             <li><NuxtLink  to="/api">Api</NuxtLink></li>
             <li><NuxtLink  to="/memoryManagement">MemoryManagement</NuxtLink></li>
-            <li><NuxtLink  to="/oop">OOPs</NuxtLink></li>
+            <li><NuxtLink  to="/oop">OOP's</NuxtLink></li>
             <li><NuxtLink  to="/about">About</NuxtLink></li>
             <li><NuxtLink  to="/contact">Contact</NuxtLink></li> 
             <li><NuxtLink  to="/sorting">Sort</NuxtLink></li> 
-            <li><NuxtLink  to="/quiz">TakeTest</NuxtLink></li>  -->
+            <li><NuxtLink  to="/regex">Regx</NuxtLink></li> 
+            <li><NuxtLink  to="/quiz">TakeTest</NuxtLink></li> 
             <!-- <li><NuxtLink  to="/dp">DynamicPrograming</NuxtLink></li>  -->
-            <!-- <li><NuxtLink  to="/logout">Logout</NuxtLink></li> -->
+            <li><NuxtLink  to="/logout">Logout</NuxtLink></li>
 
           </ul>
         </nav>
@@ -28,7 +29,7 @@
   <script setup>  </script>
 
 
- <style scoped>
+  <style scoped>
   /* Center the navbar items */
   .navbar {
     list-style: none;
@@ -62,4 +63,4 @@
     background-color: #007BFF; /* Change the background color on hover */
     color: #fff; /* Change the text color on hover */
   }
-  </style> 
+  </style>

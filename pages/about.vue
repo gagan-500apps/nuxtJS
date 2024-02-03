@@ -1,7 +1,7 @@
 <template>
-  <NuxtLayout name="defaultttt">
+  <!-- <NuxtLayout name="navbar">
     <NuxtPage />
-  </NuxtLayout>
+  </NuxtLayout> -->
   <div class="about-container">
     <h1 class="about-title">About</h1>
     <p class="about-info">
@@ -22,6 +22,12 @@
 <script setup>
 const flag = ref(null)
 //-------------------------Middleware------------------- 
+
+definePageMeta({
+  layout: "navbar"
+})
+
+
 const gotohome = () => {
   navigateTo('/home')
 }

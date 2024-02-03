@@ -1,5 +1,5 @@
  <template>
-<NuxtLayout name="defaultttt">
+<NuxtLayout name="navbar">
     <NuxtPage />
   </NuxtLayout>
   <h1>Home</h1>
@@ -9,7 +9,7 @@
 <script setup>
 
 definePageMeta({
-  middleware : ['login']
+  middleware : 'login'
 })
 
 

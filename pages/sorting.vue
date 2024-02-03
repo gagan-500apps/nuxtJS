@@ -1,5 +1,5 @@
 <template>
-    <NuxtLayout name="defaultttt">
+<NuxtLayout name="navbar">
     <NuxtPage />
   </NuxtLayout>
   <div class="container mx-auto mt-15 text-center flex flex-col items-center mt-60">
