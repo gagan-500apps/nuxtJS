@@ -1,6 +1,9 @@
 <template>
   <form @submit.prevent="handleFormSubmit" class="form_container">
-    <div v-for="data in arrayData" :key="data.id" class="input_box">
+    <h1 class="text-4xl font-serif  p-2 pb-6">{{ arrayData[0].formName }}</h1>
+
+    <div v-for=" data in arrayData" :key="data.id" class="input_box">
+     <!-- <h1 v-if="data.formName==='login'"> LOGIN </h1> -->
       <span class="label_text">
         {{ data.text }}
       </span>
@@ -132,10 +135,11 @@ const validatePassword = (password) => {
 .form_container {
   max-width: 300px;
   margin: auto;
+  margin-top: 8rem;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #3498db;
+  background: linear-gradient(to right, #3182CE, #2C5282);
   color: #fff;
   text-align: center;
 }

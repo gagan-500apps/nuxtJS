@@ -3,6 +3,11 @@
       <header>
         <nav>
           <ul class="navbar">
+            
+            <a href="/home">
+              <img src="https://i.ibb.co/LvmSGy2/logo-mantra-technologies-pvt-ltd.jpg" 
+              alt="companylogo" class="company-logo">
+            </a>
             <li><NuxtLink  to="/home">Home</NuxtLink></li> 
             <li><NuxtLink  to="/middleware">Middleware</NuxtLink></li> 
             <li><NuxtLink  to="/plugin">Plugins</NuxtLink></li> 
@@ -21,6 +26,9 @@
           </ul>
         </nav>
       </header>
+      <h3 class="">
+        <span class="text-wrapper">Build A Great</span>
+      </h3>
       <slot />
     </div> 
   </template>
@@ -33,19 +41,27 @@
   /* Center the navbar items */
   .navbar {
     list-style: none;
-    padding: 3%;
+    padding: 0;
     margin: 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    height: 50px; /* Set a fixed height for the navbar */
-    background-color: #0c3478; /* Set a background color for the navbar */
+    /* height: 50px; Set a fixed height for the navbar */
+    background-color: #010101; /* Set a background color for the navbar */
     color: #ebe9e9;
   }
 
   /* Style for each list item in the navbar */
   .navbar li {
     margin: 0 25px; /* Adjust the spacing between the list items */
+    font-weight: 600;
+    text-transform: capitalize;
+    color: rgba(245, 245, 245, 0.951);
+  }
+
+  .navbar li:hover{
+    color: white;
+    text-transform: uppercase;
   }
 
   /* Optional: Add some styling for the links */
@@ -63,4 +79,12 @@
     background-color: #007BFF; /* Change the background color on hover */
     color: #fff; /* Change the text color on hover */
   }
+
+  .company-logo {
+  /* max-height: 100px; */
+  /* Adjust the height as needed */
+  /* max-width: 100%; */
+  width: 270px;
+
+}
   </style>

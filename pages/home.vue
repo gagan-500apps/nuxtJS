@@ -1,7 +1,7 @@
  <template>
-<NuxtLayout name="navbar">
+<!-- <NuxtLayout name="navbar">
     <NuxtPage />
-  </NuxtLayout>
+  </NuxtLayout> -->
   <h1>Home</h1>
   
 </template>
@@ -9,7 +9,8 @@
 <script setup>
 
 definePageMeta({
-  middleware : 'login'
+  // middleware : 'login',
+  layout: 'navbar'
 })
 
 

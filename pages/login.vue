@@ -2,9 +2,9 @@
 
  <template>
   <div class="login-container">
-    <h1>Login</h1>
+    
     <FormComponents :arrayData="arrayData" />
-    <p>Don't have account? <span @click="goToSignup" class="signup-link">Signup</span></p>
+    <p>Don't have account? <button @click="goToSignup" class="signup-link">Signup</button></p>
   </div>
 </template> 
 
@@ -18,6 +18,16 @@ const arrayData = [
   { id: 1, name: "email", placeholder: "Enter your email", type: "text", formName: "login", text: "Enter your Email" },
   { id: 2, name: "password", placeholder: "Enter your password", type: "password", formName: "login", text: "Enter your Password" },
 ]
+
+// const arrayData = {
+//   heading : "login",
+//   fields  : [
+
+//     {id: 1,  text: "Login" },
+//     { id: 2, name: "email", placeholder: "Enter your email", type: "text", formName: "login", text: "Enter your Email" },
+//     { id: 3, name: "password", placeholder: "Enter your password", type: "password", formName: "login", text: "Enter your Password" },
+//   ]
+// }
 
 function goToSignup() {
   router.push('/signup');

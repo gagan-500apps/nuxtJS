@@ -1,8 +1,8 @@
 <template>
     <div  class="Signup-container">
-      <h1>Signup</h1>
+      
       <FormComponents :arrayData="arrayData" />
-      <p>Alredy have an account? <span @click="goToLogin" class="login-link">Login</span></p>
+      <p>Alredy have an account? <button @click="goToLogin" class="login-link">Login</button></p>
     </div>
     
     <!-- <div class="flex p-4 mt-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 text-blue-400" role="alert">

@@ -1,7 +1,5 @@
 <template>
- <NuxtLayout name="navbar">
-    <NuxtPage />
-  </NuxtLayout>
+ 
 
   <button @click="getotp" class="otp-button">Get OTP</button>
   <div v-if="flag" class="otp-container">
@@ -11,6 +9,12 @@
 
 
 <script setup>
+
+definePageMeta({
+  middleware : 'login',
+  layout: 'navbar'
+})
+
 const { otp } = useNuxtApp() //here we are calling the otp.js otp method
 const otpNumber = ref('')
 const flag = ref(false)
