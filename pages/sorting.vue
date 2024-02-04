@@ -1,7 +1,5 @@
 <template>
-<NuxtLayout name="navbar">
-    <NuxtPage />
-  </NuxtLayout>
+
   <div class="container mx-auto mt-15 text-center flex flex-col items-center mt-60">
     <div class="flex flex-col items-center mb-6">
       <h1 class="text-3xl font-bold mb-4 text-blue-500">Enter the random number to sort</h1>
@@ -32,6 +30,10 @@ const third = ref();
 const fourth = ref();
 const five = ref();
 let sortedValues = ref();
+
+definePageMeta({
+  layout: 'navbar'
+})
 
 const bubbleSort = () => {
   const array1 = [first.value, second.value, third.value, fourth.value, five.value];

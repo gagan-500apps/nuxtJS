@@ -23,6 +23,11 @@
 </template>
 
 <script setup>
+
+definePageMeta({
+  layout: 'navbar'
+})
+
 const questions = [
     {
         question: "what is your age",

@@ -87,7 +87,7 @@
 .company-logo {
   max-height: 40px;
   /* Adjust the height as needed */
-  max-width: 100%;
+  max-width: 5%;
   /* Ensure the logo does not exceed its container */
 }
 

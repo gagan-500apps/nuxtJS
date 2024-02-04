@@ -1,7 +1,5 @@
 <template>
-<NuxtLayout name="navbar">
-    <NuxtPage />
-  </NuxtLayout>
+
   <div class="parent">
     <div>
       <textarea v-model="message" placeholder="Type your message"></textarea>
@@ -25,6 +23,10 @@ const isSpam = ref(false);
 const flag = ref(false);
 
 const spamWords = ['buy', 'earnmoney', 'free', 'limited time offer', 'winner', 'discount', 'guarantee'];
+
+definePageMeta({
+  layout: 'navbar'
+})
 
 const checkForSpam = () => {
   const regexPattern = new RegExp(spamWords.join('|'), 'i');

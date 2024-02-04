@@ -21,14 +21,12 @@
             <li><NuxtLink  to="/regex">Regx</NuxtLink></li> 
             <li><NuxtLink  to="/quiz">TakeTest</NuxtLink></li> 
             <!-- <li><NuxtLink  to="/dp">DynamicPrograming</NuxtLink></li>  -->
-            <li><NuxtLink  to="/logout">Logout</NuxtLink></li>
-
+            <li><NuxtLink  to="/logout"
+              class="text-white border cursor-pointer hover:bg-[#ffc107] hover: text-[15px] border-[#FFC107] rounded-[3px] px-6 py-2 font-medium shadow-[0_10px_16px_0_#070707]"
+              >Logout</NuxtLink></li>
           </ul>
         </nav>
       </header>
-      <h3 class="">
-        <span class="text-wrapper">Build A Great</span>
-      </h3>
       <slot />
     </div> 
   </template>

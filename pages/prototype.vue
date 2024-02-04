@@ -1,7 +1,5 @@
 <template>
- <NuxtLayout name="navbar">
-    <NuxtPage />
-  </NuxtLayout>
+ 
     <div>
       <VehicleComponent :Comp="vehicle.Company" :mod="vehicle.model" />
       <CarComponent :Company="car.Company" :model="car.model" :doors="car.doors" />
@@ -15,6 +13,11 @@
   import CarComponent from '~/components/CarComponent.vue';
   import MotorcycleComponent from '~/components/MotorcycleComponent.vue';
   
+  definePageMeta({
+  // middleware : 'login',
+  layout: 'navbar'
+})
+
   class Vehicle {
     constructor(Company, model) {
       this.Company = Company;

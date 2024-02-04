@@ -21,8 +21,12 @@
 // import { NuxtLayout } from '#build/components';
 
 definePageMeta({
-  middleware : ['login']
+  layout: 'navbar'
+  // middleware : 'login'
 })
+
+
+
 
   const flag=ref('false')
 const direction= ()=>{

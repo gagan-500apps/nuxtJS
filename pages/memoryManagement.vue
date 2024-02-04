@@ -1,8 +1,4 @@
 <template>
-
-<NuxtLayout name="defaultttt">
-    <NuxtPage />
-  </NuxtLayout>
   
     <div class="container">
         <h1 style="font-size: xx-large;">Memory Management</h1>
@@ -40,6 +36,11 @@
   <script setup>
   import { ref } from 'vue';
   
+  definePageMeta({
+  layout: 'navbar'
+})
+
+
   const obj = ref({
     name: '',
     age: '',

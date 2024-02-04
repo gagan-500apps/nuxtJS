@@ -50,6 +50,10 @@ let allAuthorDataArr = ref([])
 let authorDataArr = ref([]);
 let authorDataArrLength =ref(8)
 
+definePageMeta({
+  layout: 'navbar'
+})
+
 // fetch('https://cdn.freecodecamp.org/curriculum/news-author-page/authors.json')
 //     .then((res) => res.json())
 //     .then((data) => {//assigning the data to authorDataArr

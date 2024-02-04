@@ -1,9 +1,4 @@
 <template>
-
-<NuxtLayout name="defaultttt">
-    <NuxtPage />
-  </NuxtLayout>
-  
     <div class="bg-gray-200 p-36 mt-11">
       <nav class="bg-blue-800 p-4 mb-9 mt-4 text-white">
         <h1 class="text-2xl font-bold">Banking App</h1>
@@ -46,6 +41,11 @@
   let user2amt = ref();
   let user3amt = ref();
   
+  definePageMeta({
+  layout: 'navbar'
+})
+
+
   class Bank {
     balanes = ref(0);
   
