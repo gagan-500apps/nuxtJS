@@ -5,12 +5,10 @@
   <div class="about-container">
     <h1 class="about-title">About</h1>
     <p class="about-info">
-      Mantra’s journey began with an aspiration to become a dynamic & viable product designer facilitating all businesses
-      and people worldwide. Staying true to its word, Mantra reached astounding milestones that further would become
-      inspirational legends to several of its successors that followed. While Mantra keeps evolving into this newer world
-      of software & business horizons, we are always rooted in our key tenets to provide cost-effective & sustainable
-      solutions to all our stakeholders
+      Mantra’s journey began with an aspiration to become a dynamic & viable product designer facilitating all businesses and people worldwide. Staying true to its word, Mantra reached astounding milestones that further would become inspirational legends to several of its successors that followed. While Mantra keeps evolving into this newer world of software & business horizons, we are always rooted in our key tenets to provide cost-effective & sustainable solutions to all our stakeholders.
     </p>
+<p>Throughout its journey, the Mantra family successfully included 300+ steadfast personnel under its wings and achieved ground-breaking wins like 500apps, with unwavering integrity driven by their hard work. Through the infinity suite, 500apps, Mantra successfully helped small and medium-scale businesses reach newer and greater heights.
+</p> 
 
   </div>
   <div class="button-container">
@@ -24,10 +22,9 @@ const flag = ref(null)
 //-------------------------Middleware------------------- 
 
 definePageMeta({
-  layout: "navbar"
+  layout: 'navbar',
+  middleware: 'login'
 })
-
-
 const gotohome = () => {
   navigateTo('/home')
 }
@@ -39,6 +36,7 @@ const gotohome = () => {
 .about-container {
   max-width: 800px;
   margin: 0 auto;
+  margin-top: 2%;
   padding: 20px;
   text-align: center;
 }
@@ -46,25 +44,22 @@ const gotohome = () => {
 .about-title {
   font-size: 36px;
   font-weight: bold;
-  color: #333;
+  color: #070707;
+  
 }
 
 .about-info {
   font-size: 16px;
-  color: #666;
+  color: #000000;
   line-height: 1.6;
   text-align: left;
-  /* Align text to the left */
   margin-bottom: 15px;
-  /* Add some space between paragraphs */
-}
+  margin-top: 4%;}
 
 .info-label {
   font-weight: bold;
   margin-right: 10px;
-  /* Add space between label and text */
   color: #3498db;
-  /* Set color for label */
 }
 
 .button-container {

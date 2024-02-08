@@ -5,10 +5,10 @@
   </NuxtLayout> -->
 
   <div :class="{ 'dark-mode': isDarkMode }">
-    <input type="text" v-model="searchText" placeholder="Search by author name">
+    <input type="text" v-model="searchText" placeholder="Search  for an author ">
 
-  <p>Toggle Dark Mode: <input type="checkbox" v-model="isDarkMode"></p>
-
+   <p>Toggle Dark Mode: <input type="checkbox" v-model="isDarkMode"></p>
+   
     <div class="parent">
         <h1 class="title">News Author Page</h1>
 
@@ -71,6 +71,7 @@ onMounted(async ()=>{
     const res=await fetch('https://cdn.freecodecamp.org/curriculum/news-author-page/authors.json');
     const data=await res.json();
     allAuthorDataArr.value = data;
+    console.log(' allAuthorDataArr.value', allAuthorDataArr.value);
         displayAuthors(); 
   } catch (err) {
     console.error(`There was an error: ${err}`);

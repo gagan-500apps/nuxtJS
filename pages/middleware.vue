@@ -6,6 +6,8 @@
 <script setup>
 // console.log("kdjh");    
 definePageMeta({
-    middleware: "aut1"
+    middleware: "aut1",
+    layout: 'navbar'
 })
+
 </script>

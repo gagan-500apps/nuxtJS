@@ -1,176 +1,57 @@
-<template>    
-        <div class="parent">
-            <input type="text" v-model="searchText" placeholder="Search by author name">
-
-            <h1 class="title">News Author Page</h1>
-    
-            <div id="author-container">  
-                <div class="author-card" v-for="(user, index ) in authorDataArr" :key="index">
-                    <h2 class="author-name">{{ user.author }}</h2>
-                    <img class="author-img" :src="`${user.image}`" alt="${author} avatar">
-                                   
-                    <p class="bio">{{ user.bio.length > 50 ? `${user.bio.slice(0, 50)}...` : user.bio }}</p>
-                    <a class="author-link" :href="`${user.url}`" target="_blank">{{user.author}} author page</a>
-                </div>
-                
-            </div>
-            <main>
-              <div v-if="authorDataArrLength  >= endingIndex">
-                <button class="btn" @click="handleLoadMore" >next8</button>
-                <button class="btn" @click="handleLoadless">prev8</button>
-              </div>
-              <div v-else>
-                <button class="btn">next8</button>
-                <button class="btn" @click="handleLoadless">prev8</button>
-              </div>
-            </main>
+<template>
+  <div class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div v-for="item in allData" :key="item.id" class="bg-white shadow-lg rounded-lg overflow-hidden">
+        <img :src="item.images[0]" alt="Product Image" class="w-full h-56 object-cover object-center">
+        <div class="p-4">
+          <h2 class="text-gray-800 text-xl font-semibold">{{ item.title }}</h2>
+          <p class="mt-2 text-gray-600">{{ item.description }}</p>
+          <div class="mt-4 flex justify-between items-center">
+            <span class="text-gray-700">{{ item.price }}</span>
+            <span class="text-gray-700">{{ item.category.name }}</span>
+          </div>
         </div>
-    </template>
-    
-    
-    <script setup>
-import { ref, onMounted, watchEffect } from 'vue';
+      </div>
+    </div>
+  </div>
+</template>
 
-    const authorContainer = ref([]);
-    const loadMoreBtnDisabled = ref(false);
-    const isDarkMode = ref(false);
-    
-    let startingIndex = ref(0) 
-    let endingIndex = ref(8)
-    let allAuthorDataArr = ref([])
-    let authorDataArr = ref([]);
-    let authorDataArrLength =ref(8)
-    
-    onMounted(async ()=>{
-      try{
-        const res=await fetch('https://cdn.freecodecamp.org/curriculum/news-author-page/authors.json');
-        const data=await res.json();
-        allAuthorDataArr.value = data;
-            displayAuthors(); 
-      } catch (err) {
-        console.error(`There was an error: ${err}`);
-      }
-    })
+<script setup>
+import { ref } from 'vue';
 
-    const searchText = ref('');
-const displayAuthors = () => {
-    const filteredAuthors = allAuthorDataArr.value.filter(user =>
-        user.author.toLowerCase().includes(searchText.value.toLowerCase())
-    );
-    authorDataArr.value = [...filteredAuthors.slice(startingIndex.value, endingIndex.value)];
-    console.log('authorDataArr.value', authorDataArr.value);
+definePageMeta({
+  layout: 'navbar'
+  // middleware : 'login'
+})
+
+const allData=ref([])
+
+onMounted(async ()=>{
+  try{
+    const res = await fetch('https://api.escuelajs.co/api/v1/products');
+  const data = await res.json();
+  allData.value=data;
+  console.log('alldata',allData.value);
+} catch (err) {
+    console.error(`There was an error: ${err}`);
+  }
+})
+
+
+//for carousel optoin 
+const currentIndex = ref(0);
+console.log("currentIndex",currentIndex);
+
+
+const currentImage = computed(() => allData.value.images[currentIndex]);
+const nextImage = () => {
+  if (currentIndex.value < allData.value.images.length - 1) {
+    currentIndex.value++;
+  }
 };
-
-watchEffect(() => {
-    displayAuthors();
-});
-    
-    const handleLoadMore = () => {
-        startingIndex.value += 8;
-        endingIndex.value += 8;
-        authorDataArr.value =[]    
-        displayAuthors()         
-        authorDataArrLength.value += authorDataArr.value.length
-    }
-    const handleLoadless=()=>{
-      startingIndex.value -= 8;
-        endingIndex.value -= 8;
-        authorDataArr.value =[]    
-        displayAuthors()
-    
-          if(authorDataArrLength.value===endingIndex.value){
-        authorDataArrLength.value -= authorDataArr.value.length
-          }else{
-    authorDataArrLength.value===endingIndex.value;
-      }
-    }
-    </script>
-
-
-
-    <style scoped>
-    .parent {
-      /* max-width: 800px; */
-      margin: auto;
-    
-    }
-    
-    .title {
-      font-size: 24px;
-      margin: 20px 0;
-      text-align: center;
-    }
-    
-    #author-container {
-      /* display: flex; */
-      /* flex-wrap: wrap; */
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      justify-content: space-evenly;
-      
-    }
-    
-    .author-card {
-    
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 20px;
-      margin: 20px;
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      align-items: center; /* Center items horizontally */
-    }
-    
-    .author-name {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-    
-    .author-img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 10px;
-    }
-    
-    .purple-divider {
-      background-color: #5a01a7;
-      height: 5px;
-      margin: 10px 0;
-    }
-    
-    .bio {
-      margin-bottom: 10px;
-    }
-    
-    .author-link {
-      color: #5a01a7;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    
-    .btn-container {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
-    
-    .btn {
-      cursor: pointer;
-      padding: 10px 20px;
-      margin: 10px;
-      color: white;
-      font-size: 16px;
-      background-color: #5a01a7;
-      border: none;
-      border-radius: 5px;
-    }
-    
-    .dark-mode {
-        height: 100vh;
-        background-color: #333;
-        color: #fff;
-      }
-    </style>
+const prevImage = () => {
+  if (currentIndex.value > 0) {
+    currentIndex.value--;
+  }
+};
+</script>

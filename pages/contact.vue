@@ -39,6 +39,7 @@ const direction= ()=>{
   .about-container {
     max-width: 800px;
     margin: 0 auto;
+    margin-top: 2%;
     padding: 20px;
     text-align: center;
   }
@@ -46,15 +47,16 @@ const direction= ()=>{
   .about-title {
     font-size: 36px;
     font-weight: bold;
-    color: #333;
+    color: #080808;
   }
   
   .about-info {
     font-size: 16px;
-    color: #666;
+    color: #0a0909;
     line-height: 1.6;
     text-align: left; /* Align text to the left */
     margin-bottom: 15px; /* Add some space between paragraphs */
+    margin-top: 4%;
   }
   
   .info-label {

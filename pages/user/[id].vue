@@ -1,8 +1,5 @@
 <template>
    <div>
-    <NuxtLayout name="defaultttt">
-      <NuxtPage />
-  </NuxtLayout>
      <h1 class="heading">{{ ustore.name }},</h1>
      <h1 class="sub-heading">Welcome to Mantra Technologies</h1>
    </div>
@@ -11,12 +8,17 @@
  <script setup>
  import ustore from '@/stores'
  import { ref } from 'vue';
-//  import {route } from 'vue-router'
+
+ definePageMeta({
+  layout: "navbar"
+})
+
+ //  import {route } from 'vue-router'
  const name = ref(ustore.name);
  console.log(name);
 
+
  </script>
- 
  
  <style scoped>
  *{
@@ -29,7 +31,6 @@
    font-weight: bold;
    margin-bottom: 10px;
  }
- 
  .sub-heading {
    color: #3498db;
    font-family: 'Helvetica', sans-serif;

@@ -10,30 +10,64 @@
             </a>
             <li><NuxtLink  to="/home">Home</NuxtLink></li> 
             <li><NuxtLink  to="/middleware">Middleware</NuxtLink></li> 
-            <li><NuxtLink  to="/plugin">Plugins</NuxtLink></li> 
-            <li><NuxtLink  to="/prototype">Prototype</NuxtLink></li>
-            <li><NuxtLink  to="/api">Api</NuxtLink></li>
-            <li><NuxtLink  to="/memoryManagement">MemoryManagement</NuxtLink></li>
-            <li><NuxtLink  to="/oop">OOP's</NuxtLink></li>
+            
+          <select style="background-color: black;" @click="goto($event.target.value)">
+            <option>JavaScript</option>
+            <option v-for="(item, index) in dropdown.slice(0)" :key="index" :value="item.route">{{ item.name }}</option>  
+          </select>
+
+  <!-- WITHOUT LOOP 
+            <li>
+            <button @click="opendropdown">JavaScript</button>
+            <div v-if="togal">
+                <div v-for="(index,items) in dropdown" :key="index">
+                <button @click="goto(items.route)">{{items.name}}</button>
+                <button @click="goto(dropdown[0].route)">  {{dropdown[0].name}} </button>
+              <button @click="goto(dropdown[1].route)">{{dropdown[1].name}}</button><br>
+              <button @click="goto(dropdown[2].route)">{{dropdown[2].name}}</button><br>
+              <button @click="goto(dropdown[3].route)">{{dropdown[3].name}}</button><br>
+              <button @click="goto(dropdown[4].route)">{{dropdown[4].name}}</button><br>
+              <button @click="goto(dropdown[5].route)">{{dropdown[5].name}}</button><br>
+            </div>
+            </div> 
+            </li>  -->
+            
+            <li><NuxtLink  to="/apidata">APIData</NuxtLink></li> 
+
+            <li><NuxtLink  to="/quiz">TakeTest</NuxtLink></li> 
             <li><NuxtLink  to="/about">About</NuxtLink></li>
             <li><NuxtLink  to="/contact">Contact</NuxtLink></li> 
-            <li><NuxtLink  to="/sorting">Sort</NuxtLink></li> 
-            <li><NuxtLink  to="/regex">Regx</NuxtLink></li> 
-            <li><NuxtLink  to="/quiz">TakeTest</NuxtLink></li> 
-            <!-- <li><NuxtLink  to="/dp">DynamicPrograming</NuxtLink></li>  -->
             <li><NuxtLink  to="/logout"
-              class="text-white border cursor-pointer hover:bg-[#ffc107] hover: text-[15px] border-[#FFC107] rounded-[3px] px-6 py-2 font-medium shadow-[0_10px_16px_0_#070707]"
+              class="text-white border cursor-pointer hover:bg-[#752222] hover: text-[15px] border-[#FFC107] rounded-[3px] px-6 py-2 font-medium shadow-[0_10px_16px_0_#070707]"
               >Logout</NuxtLink></li>
           </ul>
         </nav>
       </header>
+      
       <slot />
     </div> 
   </template>
 
 
-  <script setup>  </script>
+  <script setup>  
+import {userForm } from '~/stores/dropDown';
 
+const togal=ref(false)
+const a=userForm()
+const dropdown=a.dropDown
+console.log('dropdown',dropdown);
+
+const opendropdown=()=>{
+  togal.value=true
+}
+
+const goto=(link)=>{
+  navigateTo(link)
+  togal.value=false
+}
+
+</script>
+ 
 
   <style scoped>
   /* Center the navbar items */

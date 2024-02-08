@@ -1,23 +1,20 @@
 <template>
   <form @submit.prevent="handleFormSubmit" class="form_container">
+
     <h1 class="text-4xl font-serif  p-2 pb-6">{{ arrayData[0].formName }}</h1>
 
     <div v-for=" data in arrayData" :key="data.id" class="input_box">
-     <!-- <h1 v-if="data.formName==='login'"> LOGIN </h1> -->
+      <!-- <h1 v-if="data.formName==='login'"> LOGIN </h1> -->
       <span class="label_text">
         {{ data.text }}
       </span>
       <!-- <input :type="getInputType(data.type)" :placeholder="data.placeholder" v-model="inputValues[data.name].value" /> -->
-      <input
-        :type="data.type"
-        :placeholder="data.placeholder"
-        v-model="inputValues[data.name].value"
-      />
+      <input :type="data.type" :placeholder="data.placeholder" v-model="inputValues[data.name].value" />
     </div>
 
-      <button class="form_submit">Submit</button> <br>
-     
-      <!-- <span class="show-password">
+    <button class="form_submit">{{ arrayData[0].submit }}</button> <br>
+
+    <!-- <span class="show-password">
         <input type="checkbox" @click="toShowPassword" />Show Password
       </span> -->
   </form>
@@ -39,11 +36,13 @@ const showPassword = ref('')
 
 
 let inputValues = {};
+
 arrayData.forEach((input) => {
   inputValues[input.name] = ref("");
-  // console.log('inname', input.name)
+  // console.log('input name', input.name)
 });
 
+// console.log('inputValues', inputValues);
 
 const submittedData = {};
 
@@ -52,19 +51,27 @@ const handleFormSubmit = () => {
     return validateUser();
   }
 
+  //storeing all the user entred data in to submittedData obj
   for (const [key, value] of Object.entries(inputValues)) {
     submittedData[key] = value.value;
   }
+  console.log('submittedData',submittedData);
 
   // ---------------------------------------------Validate email and password using REGEX
-  if (!validateEmail(submittedData.email)) {
-    alert("Invalid email format");
-    return;
-  }
-  if (!validatePassword(submittedData.password)) {
-    alert("Password must be at least 8 characters long \nincludeing atleast one number, \natleast one lowercase, and \natleast one uppercase letters");
-    return;
-  }
+  
+  console.log('submittedData.email',submittedData.email);
+  if(submittedData.email != undefined){
+    if (!validateEmail(submittedData.email)) {
+      alert("Invalid email format");
+      return;
+    }}
+
+if(submittedData.password != undefined){
+    if (!validatePassword(submittedData.password)) {
+      alert("Password must be at least 8 characters long \nincludeing atleast one number, \natleast one lowercase, and \natleast one uppercase letters");
+      return;
+    }}
+  
 
 
 
@@ -88,7 +95,7 @@ const validateUser = () => {
   const email = inputValues["email"].value;
   const password = inputValues["password"].value;
   let user = null;
-  
+
   userData.forEach((item) => {
     if (item.email === email && item.password === password) {
       user = item;
@@ -99,9 +106,10 @@ const validateUser = () => {
   if (user) {
     console.log("user exist");
     // console.log('username',user.name);
-    // navigateTo(`home`)
-    router.push("/home");
-    alert("welcome to Mantra");
+  
+    // alert("welcome to Mantra");
+    navigateTo(`/home`)
+    // router.push("/home")
   } else {
     alert("user doesnot exist");
   }
@@ -133,8 +141,9 @@ const validatePassword = (password) => {
 
 <style scoped>
 .form_container {
-  max-width: 300px;
+  max-width: 450px;
   margin: auto;
+  margin-left: 60%;
   margin-top: 8rem;
   padding: 20px;
   border-radius: 8px;
@@ -183,5 +192,4 @@ input {
   display: flex;
   justify-content: space-between;
 }
-
 </style>

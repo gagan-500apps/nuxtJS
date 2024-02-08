@@ -12,22 +12,13 @@
 <script setup>
 import FormComponents from '~/components/FormComponents.vue';
 import { useRouter } from 'vue-router';
+import login from '~/middleware/login';
 const router = useRouter();
 
 const arrayData = [
-  { id: 1, name: "email", placeholder: "Enter your email", type: "text", formName: "login", text: "Enter your Email" },
-  { id: 2, name: "password", placeholder: "Enter your password", type: "password", formName: "login", text: "Enter your Password" },
+  { id: 1, name: "email", placeholder: "Enter your email", type: "text", formName: "login", submit:"Login", text: "Enter your Email" },
+  { id: 2, name: "password", placeholder: "Enter your password", type: "password", formName: "login", submit:"Login", text: "Enter your Password" },
 ]
-
-// const arrayData = {
-//   heading : "login",
-//   fields  : [
-
-//     {id: 1,  text: "Login" },
-//     { id: 2, name: "email", placeholder: "Enter your email", type: "text", formName: "login", text: "Enter your Email" },
-//     { id: 3, name: "password", placeholder: "Enter your password", type: "password", formName: "login", text: "Enter your Password" },
-//   ]
-// }
 
 function goToSignup() {
   router.push('/signup');
@@ -42,17 +33,6 @@ function goToSignup() {
   font-size: 2rem;
 }
 
-/* .form_submit {
-  background-color: #fff;
-  color: #3498db;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-left: 47%;
-} */
-
-
 .signup-link:hover {
   background-color: #15ce34;
   color: #e4e0e0;
@@ -61,11 +41,13 @@ function goToSignup() {
 p {
   display: flex;
   justify-content: center;
+
+  margin-left: 45%;
 }
 
 .signup-link {
   color: #038ce7;
-  margin-left: 5px;
+ 
 }
 
 </style> 

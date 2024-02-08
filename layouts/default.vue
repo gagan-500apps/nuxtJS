@@ -13,26 +13,12 @@
               </nav>
             </header>
           </li>
-          <li>
-            <NuxtLink to="/home">Home</NuxtLink>
-          </li>
-          <!-- <li><NuxtLink  to="/middleware">Middleware</NuxtLink></li> 
-            <li><NuxtLink  to="/plugin">Plugins</NuxtLink></li> 
-            <li><NuxtLink  to="/prototype">Prototype</NuxtLink></li>
-            <li><NuxtLink  to="/api">Api</NuxtLink></li>
-            <li><NuxtLink  to="/memoryManagement">MemoryManagement</NuxtLink></li>
-            <li><NuxtLink  to="/oop">OOPs</NuxtLink></li>
-            <li><NuxtLink  to="/about">About</NuxtLink></li>
-            <li><NuxtLink  to="/contact">Contact</NuxtLink></li> 
-            <li><NuxtLink  to="/sorting">Sort</NuxtLink></li> 
-            <li><NuxtLink  to="/quiz">TakeTest</NuxtLink></li>  -->
-          <!-- <li><NuxtLink  to="/dp">DynamicPrograming</NuxtLink></li>  -->
-          <!-- <li><NuxtLink  to="/logout">Logout</NuxtLink></li> -->
-
+         
         </ul>
       </nav>
     </header>
     <slot />
+  
   </div>
 </template>
 
@@ -41,7 +27,6 @@
 
 
 <style scoped>
-/* Center the navbar items */
 .navbar {
   list-style: none;
   padding: 3%;
@@ -50,50 +35,33 @@
   justify-content: center;
   align-items: center;
   height: 50px;
-  /* Set a fixed height for the navbar */
-  background: linear-gradient(to left, #2c5282, #3182ce);
-  /* Set a background color for the navbar */
+  background: linear-gradient(to left, #245dbf, #155bd5 );;
   color: #ebe9e9;
 }
 
-/* Style for each list item in the navbar */
+
 .navbar li {
   margin: 0 25px;
-  /* Adjust the spacing between the list items */
 }
 
-/* Optional: Add some styling for the links */
 #home-link,
 #about-link {
   text-decoration: none;
   color: #fffbfb;
-  /* Set the text color */
   padding: 8px 12px;
-  /* Add some padding to the links */
   border-radius: 4px;
-  /* Add rounded corners */
   font-weight: bold;
-  /* Make the letters bold */
 }
 
 #home-link:hover,
 #about-link:hover {
   background-color: #007BFF;
-  /* Change the background color on hover */
   color: #fff;
-  /* Change the text color on hover */
 }
 
 .company-logo {
   max-height: 40px;
-  /* Adjust the height as needed */
   max-width: 5%;
-  /* Ensure the logo does not exceed its container */
 }
 
-/* Additional styling for the header and navigation bar if needed */
-
-
-nav {
-  /* Add any additional styling for the navigation bar */
-}</style> 
+</style> 

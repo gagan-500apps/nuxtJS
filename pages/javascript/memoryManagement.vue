@@ -1,7 +1,7 @@
 <template>
   
-    <div class="container">
-        <h1 style="font-size: xx-large;">Memory Management</h1>
+    <div class="container mt-20">
+        <h1 class="text-4xl font-bold mb-9">Memory Management</h1>
       <div class="input-container">
         <label for="name">Name:</label>
         <input type="text" v-model="obj.name" placeholder="Your name" />
@@ -15,7 +15,7 @@
   
       <div class="gap"></div> <!-- Added a gap between the input and data containers -->
   
-      <div class="data-container">
+      <div class="data-container flex justify-center gap-10 mt-20">
         <div class="data-box">
           <h1>Object 1 Data</h1>
           <p>Name: {{ obj.name }}</p>
@@ -94,13 +94,14 @@
   }
   
   .data-box {
-    width: 48%;
+    width: 58%;
     padding: 50px;
     background-color: #d2d2d2; 
     border-radius: 8px;
     box-shadow: 0 0 100px rgba(17, 16, 16, 0.1);
     font-size: 21px; 
-    color: #0e0d0d; 
+    color: #0e0d0d;
+    
   }
   
   .data-box h1 {
