@@ -3,12 +3,19 @@ export default defineNuxtRouteMiddleware((to, from) => {
     console.log('to',to.fullPath);
    
     console.log(to.fullPath==='/home');
-    console.log(from.fullPath==='/login');
+    console.log(from.fullPath==='/');
    
 
-     if(to.fullPath==='/home' && from.fullPath==='/')
+    //  if(to.fullPath==='/home' || to.fullPath==='/about' || to.fullPath==='/contact' || from.fullPath==='/')
+    if(to.fullPath==='/home' && from.fullPath==='/')
      {
-        alert('Do Successful Login')
-        return navigateTo("/login")
+        // alert('Do Successful Login')
+    console.log('home');
+        return navigateTo('/login')
+    
      }
+    //  else{
+    //     console.log('home');
+    //     return navigateTo('/home')
+    //  }
  })     

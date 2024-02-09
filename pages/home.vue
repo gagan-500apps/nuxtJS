@@ -55,9 +55,10 @@
 </template>
 
 <script setup>
+
 definePageMeta({
   layout: 'navbar',
-  // middleware: 'login'
+  middleware: 'login' 
 })
 </script>
 

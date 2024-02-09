@@ -18,13 +18,18 @@
 <!-- //-------------------------------------------------------------------------------- -->
   
 <script setup>
-const flag = ref(null)
+
 //-------------------------Middleware------------------- 
 
 definePageMeta({
   layout: 'navbar',
+  // middleware: 'login'
   middleware: 'login'
+
 })
+
+
+
 const gotohome = () => {
   navigateTo('/home')
 }
