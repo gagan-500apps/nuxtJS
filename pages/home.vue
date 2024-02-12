@@ -1,6 +1,9 @@
 <template>
   <div>
-    <h2 class="fw-bold text-2xl md:text-3xl lg:text-4xl mt-6 md:mt-10">
+    <marquee behavior="" direction="right" class="fw-bold text-xl text-red-500">---Well Come to Mantra Technologies ---</marquee>
+  </div>
+  <div>
+    <h2 class="fw-bold text-2xl md:text-3xl lg:text-4xl mt-1">
       <span class="highlight-text">Go to the next level with</span> <span class="blue-text">MANTRA</span>
     </h2>
 
